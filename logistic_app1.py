@@ -22,15 +22,21 @@ y = dataset.iloc[:, 0].values
 #splitting the dataset into training and validation dataset
 #taking 75% training data, 25% for test data
 #taking 85% training data, 15% for test data
+#taking 90% training data, 10% for test data
 xtrain, xtest, ytrain, ytest = train_test_split( 
-		x, y, test_size = 0.15, random_state = 0)
+		x, y, test_size = 0.1, random_state = 0)
 
 #shape of the data
 #adding constant term in x
-m = len(y)
-ones = np.ones((m,1))
-x = np.hstack((ones, x)) #add the constant
-(m,n) = x.shape
+mtrain = len(ytrain)
+ones = np.ones((mtrain,1))
+xtrain = np.hstack((ones, xtrain)) #add the constant
+(mtrain,n) = xtrain.shape
+
+mtest = len(ytest)
+ones = np.ones((mtest,1))
+xtest = np.hstack((ones, xtest)) #add the constant
+(mtest,n) = xtest.shape
 
 #vecorized implementaton of sigmoid function
 def sigmoid(z):
@@ -52,13 +58,16 @@ def gradRegularization(theta, X, y, lmbda):
   return temp
 
 #inital parameters
-# lmbda = 0.1 gave accu_perct as 79.38833333333334
-# lmbda = 0.2 gave accu_perct as 79.40333333333334
-#gave accu_perct as 79.455 test set accuracy as 79.06 with 50 iterations
-#gave accu_perct as 79.94 test set accuracy as 79.38 with 100 iterations
-#gave accu_perct as 80.366 test set accuracy as 79.43 with 500 iterations, took 1139.07 seconds
-#gave accu_perct as 80.4466 test set accuracy as 79.39 with 1000 iterations, took 2304.93 seconds
-lmbda = 0.8
+# lmbda = 0.1 gave accu_perct as 78.9, test set accuracy as 79.1
+# lmbda = 0.2 gave accu_perct as 78.616, test set accuracy as 79.07
+# lmbda = 0.8 gave accu_perct as 78.933 test set accuracy as 79.1
+# lmbda = 0.08 gave accu_perct as 79.0, test set accuracy as 79.19
+# lmbda = 0.04 gave accu_perct as 78.966, test set accuracy as 78.97
+# lmbda = 0.02 gave accu_perct as 78.967, test set accuracy as 79.15
+# lmbda = 0.01 gave accu_perct as 78.867, test set accuracy as 79.24 with 50 iteratons
+# lmbda = 0.01 gave accu_perct as 79.1, test set accuracy as 79.37 with 100 iteratons
+# lmbda = 0.01 gave accu_perct as 79.467, test set accuracy as 79.37 with 500 iteratons
+lmbda = 0.09 #gave accu_perct as 79.35, test set accuracy as 79.47 with 1000 iteratons
 k = 10
 theta = np.zeros((k,n))
 
@@ -70,13 +79,13 @@ theta = np.zeros((k,n))
 # maxiter is the maximum iterations it will run
 for i in range(k):
   digit_class = i if i else 10
-  theta[i] = opt.fmin_cg(f = costFunctionReg, x0 = theta[i],  fprime = gradRegularization, args = (x, (y == digit_class).flatten(), lmbda), maxiter = 1000)
+  theta[i] = opt.fmin_cg(f = costFunctionReg, x0 = theta[i],  fprime = gradRegularization, args = (xtrain, (ytrain == digit_class).flatten(), lmbda), maxiter = 1000)
 
 #predicting as per the model
 #using One-vs-All technique
-pred = np.argmax(x @ theta.T, axis = 1)
+pred = np.argmax(xtest @ theta.T, axis = 1)
 pred = [e if e else 10 for e in pred]
-accu_perct = np.mean(pred == y.flatten()) * 100
+accu_perct = np.mean(pred == ytest.flatten()) * 100
 
 print(accu_perct)
 
