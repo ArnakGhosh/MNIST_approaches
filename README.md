@@ -20,7 +20,7 @@ This reository has been created solely for the training and exploratory purpose.
 - [x] knn_app2.py : Implementing classification algorithm (K Nearest Neighbours) and trying to acheive best accuracy with changing the number of clusters
 - [ ] svm_app3,py : Implementing Suport Vector Machines with Random Forrest algorithm and observe accuracy 
 - [ ] cnn_app4.py : Implementing Convoluted Neural Networks
-- [ ] deep dive to further advanced aproaches
+- [ ] deep dive into further advanced aproaches
 
 All the time figures have been calculated according to my presonal computer having the following specification and I have used Sublime Text 3 as the ide for the python programs:
 
