@@ -17,7 +17,7 @@ This reository has been created solely for the training and exploratory purpose.
 ## Here are the approaches taken:
 
 - [x] logistic_app1.py : Implementing logistic regression algorithms and trying with different lambda to observe the changes in accuracy
-- [x] knn_app2.py : Implementing classification algorithm (K Nearest Neighbours) and trying to acheive best accuracy with changing the number of clusters
+- [x] knn_app2.py : Implementing classification algorithm (K Nearest Neighbours) and trying to acheive best accuracy with changing the number of nearest data points
 - [x] svm_app3.py : Implementing Suport Vector Machines with polynomial kernel and choosing gamma with accuracy
 - [ ] rfc_app4.py : Implementing Random Forrest classifier
 - [ ] cnn_app5.py : Implementing Convoluted Neural Networks
