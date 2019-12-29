@@ -18,13 +18,14 @@ This reository has been created solely for the training and exploratory purpose.
 
 - [x] logistic_app1.py : Implementing logistic regression algorithms and trying with different lambda to observe the changes in accuracy
 - [x] knn_app2.py : Implementing classification algorithm (K Nearest Neighbours) and trying to acheive best accuracy with changing the number of clusters
-- [ ] svm_app3,py : Implementing Suport Vector Machines with Random Forrest algorithm and observe accuracy 
-- [ ] cnn_app4.py : Implementing Convoluted Neural Networks
+- [x] svm_app3.py : Implementing Suport Vector Machines with polynomial kernel and choosing gamma with accuracy
+- [ ] rfc_app4.py : Implementing Random Forrest classifier
+- [ ] cnn_app5.py : Implementing Convoluted Neural Networks
 - [ ] deep dive into further advanced aproaches
 
 All the time figures have been calculated according to my presonal computer having the following specification and I have used Sublime Text 3 as the ide for the python programs:
 
-- OS Name	Microsoft Windows 8.1 Single Language
-- Version	6.3.9600 Build 9600
-- Processor	Intel(R) Core(TM) i3-4010U CPU @ 1.70GHz, 1701 Mhz, 2 Core(s), 4 Logical Processor(s)
-- Installed Physical Memory (RAM)	4.00 GB
+- OS Name -	Microsoft Windows 8.1 Single Language
+- Version -	6.3.9600 Build 9600
+- Processor - Intel(R) Core(TM) i3-4010U CPU @ 1.70GHz, 1701 Mhz, 2 Core(s), 4 Logical Processor(s)
+- Installed Physical Memory (RAM) -	4.00 GB
